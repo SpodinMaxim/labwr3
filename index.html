@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ЛР3 — JavaScript (DOM) — Варіант 0</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Лабораторна робота №3 — DOM засобами JavaScript</h1>
+    <p class="muted"><strong>Варіант 0</p>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card">
+      <h2>Галерея</h2>
+
+      <div class="img-box">
+        <img id="mainImage" src="images/1.jpg" alt="Зображення 1" />
+      </div>
+
+      <p class="muted" id="currentInfo">Поточне: images/1.jpg</p>
+    </section>
+
+    <section class="card">
+      <h2>Вибір зображення</h2>
+
+      <label for="imgSelect">Оберіть картинку:</label>
+      <select id="imgSelect"></select>
+
+      <div class="divider"></div>
+
+      <h2>Параметри зображення</h2>
+
+      <div class="controls">
+        <label>
+          Ширина (px):
+          <input id="imgWidth" type="number" min="50" max="2000" step="10" value="800">
+        </label>
+
+        <label>
+          Висота (px):
+          <input id="imgHeight" type="number" min="50" max="2000" step="10" value="450">
+        </label>
+
+        <label>
+          Товщина рамки (px):
+          <input id="imgBorder" type="number" min="0" max="40" step="1" value="2">
+        </label>
+
+        <label>
+          Alt-текст:
+          <input id="imgAlt" type="text" value="Зображення 1">
+        </label>
+
+        <div class="btn-row">
+          <button id="applyBtn" type="button">Застосувати</button>
+          <button id="resetBtn" type="button">Скинути</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
