@@ -1,6 +1,6 @@
 "use strict";
 
-// ====== Набор изображений (можно изменить количество) ======
+// ====== Набор изображений ======
 const IMAGE_COUNT = 3;
 
 const els = {
@@ -18,7 +18,7 @@ const els = {
   resetBtn: document.getElementById("resetBtn"),
 };
 
-// Значения по умолчанию (можешь поменять)
+
 const defaults = {
   imgIndex: 1,
   width: 800,
@@ -47,7 +47,7 @@ function setImageByIndex(idx) {
 
   els.mainImage.src = path;
 
-  // Если alt пустой — ставим автотекст по номеру
+  
   const altText = els.imgAlt.value.trim() || `Зображення ${safeIdx}`;
   els.mainImage.alt = altText;
 
@@ -60,7 +60,7 @@ function applyParams() {
   const b = Number(els.imgBorder.value);
   const alt = els.imgAlt.value.trim();
 
-  // Применяем style через DOM
+  // style через DOM
   els.mainImage.style.width = `${w}px`;
   els.mainImage.style.height = `${h}px`;
   els.mainImage.style.border = `${b}px solid #000`;
@@ -68,7 +68,7 @@ function applyParams() {
   // alt через DOM-атрибут
   els.mainImage.alt = alt || els.mainImage.alt;
 
-  // Обновим подпись
+
   const idx = Number(els.imgSelect.value);
  els.currentInfo.textContent = `Поточне: ${els.mainImage.alt}`;
 }
@@ -81,37 +81,37 @@ function resetAll() {
   els.imgBorder.value = String(defaults.border);
   els.imgAlt.value = defaults.alt;
 
-  // Сброс стилей и установка заново
+  
   els.mainImage.style.width = `${defaults.width}px`;
   els.mainImage.style.height = `${defaults.height}px`;
   els.mainImage.style.border = `${defaults.border}px solid #000`;
 
   setImageByIndex(defaults.imgIndex);
 
-  // обновим info
+ 
  els.currentInfo.textContent = `Поточне: ${els.mainImage.alt}`;
 }
 
 function init() {
   fillSelect();
 
-  // Стартовое состояние: первое изображение
+  
   els.imgSelect.value = String(defaults.imgIndex);
 
-  // поставим размеры/рамку
+  
   els.mainImage.style.width = `${defaults.width}px`;
   els.mainImage.style.height = `${defaults.height}px`;
   els.mainImage.style.border = `${defaults.border}px solid #000`;
 
-  // alt
+  
   els.imgAlt.value = defaults.alt;
 
   setImageByIndex(defaults.imgIndex);
 
-  // ====== События ======
+  
   els.imgSelect.addEventListener("change", () => {
     const idx = Number(els.imgSelect.value);
-    // При смене картинки — автоматически меняем alt на номер, если поле пустое
+    
     if (!els.imgAlt.value.trim()) els.imgAlt.value = `Зображення ${idx}`;
     setImageByIndex(idx);
   });
